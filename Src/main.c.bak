@@ -125,7 +125,7 @@ int main( void )
 											configMINIMAL_STACK_SIZE,
 											NULL,
 											1,
-											10,
+											50,
 											NULL);
 	
 	xTaskPeriodicCreate(
@@ -134,7 +134,7 @@ int main( void )
 											configMINIMAL_STACK_SIZE,
 											NULL,
 											1,
-											10,
+											50,
 											NULL);
 	
   xTaskPeriodicCreate(
@@ -143,7 +143,7 @@ int main( void )
 											configMINIMAL_STACK_SIZE,
 											NULL,
 											1,
-											20,
+											100,
 											NULL);
 											
 	xTaskPeriodicCreate(
@@ -152,7 +152,7 @@ int main( void )
 											configMINIMAL_STACK_SIZE,
 											NULL,
 											1,
-											4,
+											20,
 											NULL);
 											
 	xTaskPeriodicCreate(
@@ -161,7 +161,7 @@ int main( void )
 											configMINIMAL_STACK_SIZE,
 											NULL,
 											1,
-											2,
+											10,
 											NULL);
 											
 	xTaskPeriodicCreate(
@@ -170,7 +170,7 @@ int main( void )
 											configMINIMAL_STACK_SIZE,
 											NULL,
 											1,
-											20,
+											100,
 											NULL);
 											
 
@@ -192,7 +192,7 @@ void Button_1_Monitor(void *pvParameters)
 {
 		TickType_t xLastWakeTime;
 		pinState_t CurrentButtonState,PreviousButtonState;
-		const TickType_t xFrequency = 10;	
+		const TickType_t xFrequency = 50;	
 		xLastWakeTime = xTaskGetTickCount ();
 		PreviousButtonState = FALLING;
 	
@@ -239,7 +239,7 @@ void Button_2_Monitor(void *pvParameters)
 {
 		TickType_t xLastWakeTime;
 		pinState_t CurrentButtonState,PreviousButtonState;
-		const TickType_t xFrequency = 10;
+		const TickType_t xFrequency = 50;
 		PreviousButtonState = FALLING;
 		xLastWakeTime = xTaskGetTickCount ();
 	
@@ -287,7 +287,7 @@ void Periodic_Transmitter (void *pvParameters)
 {
 		TickType_t xLastWakeTime;
 		//char SendString[50] = "Periodic_Tramsimtter is run.\n";
-		const TickType_t xFrequency = 20;
+		const TickType_t xFrequency = 100;
 		xLastWakeTime = xTaskGetTickCount ();
 	
 		vTaskSetApplicationTaskTag( NULL, ( void * ) 5 );
@@ -320,7 +320,7 @@ void Uart_Receiver (void *pvParameters)
 {
 		TickType_t xLastWakeTime;
 		signed char ReceiveString[30];
-		const TickType_t xFrequency = 4;
+		const TickType_t xFrequency = 20;
 		xLastWakeTime = xTaskGetTickCount ();
 		
 		vTaskSetApplicationTaskTag( NULL, ( void * ) 6 );
@@ -348,7 +348,7 @@ void Load_1_Simulation (void *pvParameters)
 {
 		TickType_t xLastWakeTime;
 		uint32_t i;
-		const TickType_t xFrequency = 2;	
+		const TickType_t xFrequency = 10;	
 		xLastWakeTime = xTaskGetTickCount ();
 	
 		vTaskSetApplicationTaskTag( NULL, ( void * ) 1 );
@@ -371,7 +371,7 @@ void Load_2_Simulation (void *pvParameters)
 {
 		TickType_t xLastWakeTime;
 		uint32_t i;
-		const TickType_t xFrequency = 20;	
+		const TickType_t xFrequency = 100;	
 		xLastWakeTime = xTaskGetTickCount ();
 	
 		vTaskSetApplicationTaskTag( NULL, ( void * ) 2 );
