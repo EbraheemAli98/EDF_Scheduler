@@ -13,12 +13,12 @@
   > 5) In a context switch API make sure that the current task chosen to exeute is in the head of the Ready List.
 ### Main Porgram Description:
   > 1) The program has 6 tasks:
-  >    - Load_1_Simulation _{ Deadline: 10ms , Execution time: 5ms , Periodicity: 10ms}_
-  >    - Load_2_Simulation _{ Deadline: 100ms, Execution time: 12ms, Periodicity: 100ms}_
-  >    - Button_1_Monitor _{ Deadline: 50ms, Execution time: 12.8us, Periodicity: 50ms }_
-  >    - Button_2_Monitor _{ Deadline: 50ms, Execution time: 12.8us, Periodicity: 50ms }_
-  >    - Uart_Receiver _{ Deadline: 20ms, Execution time: 25us, Periodicity: 20ms }_
-  >    - Periodic_Transimtter _{ Deadline: 100ms, Execution time: 18us, Periodicity: 100ms}_
+  >    - Load_1_Simulation { _Deadline: 10ms , Execution time: 5ms , Periodicity: 10ms_ }
+  >    - Load_2_Simulation { _Deadline: 100ms, Execution time: 12ms, Periodicity: 100ms_ }
+  >    - Button_1_Monitor { _Deadline: 50ms, Execution time: 12.8us, Periodicity: 50ms_ }
+  >    - Button_2_Monitor { _Deadline: 50ms, Execution time: 12.8us, Periodicity: 50ms_ }
+  >    - Uart_Receiver { _Deadline: 20ms, Execution time: 25us, Periodicity: 20ms_ }
+  >    - Periodic_Transimtter { _Deadline: 100ms, Execution time: 18us, Periodicity: 100ms_ }
   > 2) Tasks Button_1_Monitor , Button_2_Monitor , Periodic_Transimtter and Uart_Receiver are communicate with each other using Queue.
   > 3) Both Load_1_Simulation and Load_2_Simulation are represent the load on the system.
 
