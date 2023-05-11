@@ -1,4 +1,4 @@
-# EDF_Scheduler `rgb(9, 105, 218)`
+# EDF_Scheduler 
 ### The EDF scheduler algorithm is suited to work in an environment where these assumptions applies:
   1) The requests for all tasks for which hard deadlines exist are periodic, with constant interval between requests.
   2) Deadlines consist of run-ability constraints only, i.e. each task must be completed before the next requests for it occurs.
