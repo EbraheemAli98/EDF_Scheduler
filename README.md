@@ -20,4 +20,5 @@
   >   5) Uart_Receiver _{ Deadline: 20ms, Execution time: 25us, Periodicity: 20ms }_
   >   6) Periodic_Transimtter _{ Deadline: 100ms, Execution time: 18us, Periodicity: 100ms}_
   > - Tasks Button_1_Monitor , Button_2_Monitor , Periodic_Transimtter and Uart_Receiver are communicate with each other using Queue.
+  > - Both Load_1_Simulation and Load_2_Simulation are represent the load on the system.
 
