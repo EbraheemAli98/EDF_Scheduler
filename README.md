@@ -13,10 +13,10 @@
   > 5) In a context switch API make sure that the current task chosen to exeute is in the head of the Ready List.
 ### Main Porgram Description:
   > 1) The program has 6 tasks:
-  >   - Load_1_Simulation _{ Deadline: 10ms , Execution time: 5ms , Periodicity: 10ms}_
-  >   - Load_2_Simulation _{ Deadline: 100ms, Execution time: 12ms, Periodicity: 100ms}_
-  >   - Button_1_Monitor _{ Deadline: 50ms, Execution time: 12.8us, Periodicity: 50ms }_
-  >   - Button_2_Monitor _{ Deadline: 50ms, Execution time: 12.8us, Periodicity: 50ms }_
-  >   - Uart_Receiver _{ Deadline: 20ms, Execution time: 25us, Periodicity: 20ms }_
-  >   - Periodic_Transimtter _{ Deadline: 100ms, Execution time: 18us, Periodicity: 100ms}_
+  >     - Load_1_Simulation _{ Deadline: 10ms , Execution time: 5ms , Periodicity: 10ms}_
+  >     - Load_2_Simulation _{ Deadline: 100ms, Execution time: 12ms, Periodicity: 100ms}_
+  >     - Button_1_Monitor _{ Deadline: 50ms, Execution time: 12.8us, Periodicity: 50ms }_
+  >     - Button_2_Monitor _{ Deadline: 50ms, Execution time: 12.8us, Periodicity: 50ms }_
+  >     - Uart_Receiver _{ Deadline: 20ms, Execution time: 25us, Periodicity: 20ms }_
+  >     - Periodic_Transimtter _{ Deadline: 100ms, Execution time: 18us, Periodicity: 100ms}_
 
