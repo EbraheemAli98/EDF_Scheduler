@@ -21,4 +21,6 @@
   >    - Periodic_Transimtter { _Deadline: 100ms, Execution time: 18us, Periodicity: 100ms_ }
   > 2) Tasks Button_1_Monitor , Button_2_Monitor , Periodic_Transimtter and Uart_Receiver are communicate with each other using Queue.
   > 3) Both Load_1_Simulation and Load_2_Simulation are represent the load on the system.
-
+### Links to project videos:
+  > 1) main.c : https://drive.google.com/file/d/16O4sVeSRSXb8KlvDQQBBYTETF3l8p_Tj/view?usp=sharing
+  > 2) Implementation files :
