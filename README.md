@@ -1,5 +1,5 @@
 # EDF_Scheduler
-### The EDF Sh=cheduler Algorithm Is Suited To Work In An Environment Where These Assumptions Applies:
+### The EDF Scheduler Algorithm Is Suited To Work In An Environment Where These Assumptions Applies:
 > 1) The requests for all tasks for which hard deadlines exist are periodic, with constant interval between requests.
 > 2) Deadlines consist of run-ability constraints only, i.e. each task must be completed before the next requests for it occurs.
 > 3) The tasks are independent in that requests for a certain task do not depend on the initialization or the completion of requests for other tasks.
