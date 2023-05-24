@@ -46,7 +46,7 @@
 #define configUSE_IDLE_HOOK			1
 #define configUSE_TICK_HOOK			1
 #define configCPU_CLOCK_HZ			( ( unsigned long ) 60000000 )	/* =12.0MHz xtal multiplied by 5 using the PLL. */
-#define configTICK_RATE_HZ			( ( TickType_t ) 1000 )
+#define configTICK_RATE_HZ			( ( TickType_t ) 100 ) /* Tick required freq = 100 Hz ,this gives us Tick time = 1/100 = 10ms */
 #define configMAX_PRIORITIES		( 4 )
 #define configMINIMAL_STACK_SIZE	( ( unsigned short ) 90 )
 #define configTOTAL_HEAP_SIZE		( ( size_t ) 13 * 1024 )
@@ -64,13 +64,13 @@
 /* Set the following definitions to 1 to include the API function, or zero
 to exclude the API function. */
 
-#define INCLUDE_vTaskPrioritySet		0
-#define INCLUDE_uxTaskPriorityGet		1
-#define INCLUDE_vTaskDelete				1
+#define INCLUDE_vTaskPrioritySet			0
+#define INCLUDE_uxTaskPriorityGet			1
+#define INCLUDE_vTaskDelete						1
 #define INCLUDE_vTaskCleanUpResources	0
-#define INCLUDE_vTaskSuspend			1
-#define INCLUDE_vTaskDelayUntil			1
-#define INCLUDE_vTaskDelay				1
+#define INCLUDE_vTaskSuspend					1
+#define INCLUDE_vTaskDelayUntil				1
+#define INCLUDE_vTaskDelay						1
 
 #define configUSE_APPLICATION_TASK_TAG	1
 
@@ -87,65 +87,65 @@ extern volatile TickType_t overall_system_time;
 
 
 #define traceTASK_SWITCHED_OUT()	do\
-																		{\
-																				switch((long)pxCurrentTCB->pxTaskTag)\
-																				{\
-																					case 1: 	/*** Load_1_Simulation Task ***/\
-																						GPIO_write(PORT_0,PIN2,PIN_IS_LOW);\
-																						Task_Load_1_Simulation_EndPoint = T1TC;\
-																						Load_1_TotalExecutionTime += (Task_Load_1_Simulation_EndPoint - Task_Load_1_Simulation_StartPoint);\
-																						break;\
-																					case 2:		/*** Load_2_Simulation Task ***/\
-																						GPIO_write(PORT_0,PIN3,PIN_IS_LOW);\
-																						Task_Load_2_Simulation_EndPoint = T1TC;\
-																						Load_2_TotalExecutionTime += (Task_Load_2_Simulation_EndPoint - Task_Load_2_Simulation_StartPoint);\
-																						break;\
-																					case 3:		/*** Button_1_Monitor Task ***/\
-																						GPIO_write(PORT_0,PIN7,PIN_IS_LOW);\
-																						break;\
-																					case 4:		/*** Button_2_Monitor Task ***/\
-																						GPIO_write(PORT_0,PIN8,PIN_IS_LOW);\
-																						break;\
-																					case 5:		/*** Periodic_Transimtter Task ***/\
-																						GPIO_write(PORT_0,PIN6,PIN_IS_LOW);\
-																						break;\
-																					case 6:		/*** Uart_Receiver Task ***/\
-																						GPIO_write(PORT_0,PIN5,PIN_IS_LOW);\
-																						break;\
-																					default:	/*** Idle Task ***/\
-																						GPIO_write(PORT_0,PIN4,PIN_IS_LOW);\
-																						break;\
-																				}\
-																					overall_system_time = T1TC;\
-																		}while(0)
+{\
+	switch((long)pxCurrentTCB->pxTaskTag)\
+	{\
+	case 1: 	/*** Load_1_Simulation Task ***/\
+		GPIO_write(PORT_0,PIN2,PIN_IS_LOW);\
+		Task_Load_1_Simulation_EndPoint = T1TC;\
+		Load_1_TotalExecutionTime += (Task_Load_1_Simulation_EndPoint - Task_Load_1_Simulation_StartPoint);\
+		break;\
+	case 2:		/*** Load_2_Simulation Task ***/\
+		GPIO_write(PORT_0,PIN3,PIN_IS_LOW);\
+		Task_Load_2_Simulation_EndPoint = T1TC;\
+		Load_2_TotalExecutionTime += (Task_Load_2_Simulation_EndPoint - Task_Load_2_Simulation_StartPoint);\
+		break;\
+	case 3:		/*** Button_1_Monitor Task ***/\
+		GPIO_write(PORT_0,PIN7,PIN_IS_LOW);\
+		break;\
+	case 4:		/*** Button_2_Monitor Task ***/\
+		GPIO_write(PORT_0,PIN8,PIN_IS_LOW);\
+		break;\
+	case 5:		/*** Periodic_Transimtter Task ***/\
+		GPIO_write(PORT_0,PIN6,PIN_IS_LOW);\
+		break;\
+	case 6:		/*** Uart_Receiver Task ***/\
+		GPIO_write(PORT_0,PIN5,PIN_IS_LOW);\
+		break;\
+	default:	/*** Idle Task ***/\
+		GPIO_write(PORT_0,PIN4,PIN_IS_LOW);\
+		break;\
+	}\
+	overall_system_time = T1TC;\
+}while(0)
 																	
 
 #define traceTASK_SWITCHED_IN()	do\
-																		{\
-																				switch((long)pxCurrentTCB->pxTaskTag)\
-																				{\
-																					case 1: 	/*** Load_1_Simulation Task ***/\
-																						GPIO_write(PORT_0,PIN2,PIN_IS_HIGH);\
-																						Task_Load_1_Simulation_StartPoint = T1TC;\
-																						break;\
-																					case 2:		/*** Load_2_Simulation Task ***/\
-																						GPIO_write(PORT_0,PIN3,PIN_IS_HIGH);\
-																						Task_Load_2_Simulation_StartPoint = T1TC;\
-																						break;\
-																					case 3:		/*** Button_1_Monitor Task ***/\
-																						GPIO_write(PORT_0,PIN7,PIN_IS_HIGH);\
-																						break;\
-																					case 4:		/*** Button_2_Monitor Task ***/\
-																						GPIO_write(PORT_0,PIN8,PIN_IS_HIGH);\
-																						break;\
-																					case 5:		/*** Periodic_Transimtter Task ***/\
-																						GPIO_write(PORT_0,PIN6,PIN_IS_HIGH);\
-																						break;\
-																					case 6:		/*** Uart_Receiver Task ***/\
-																						GPIO_write(PORT_0,PIN5,PIN_IS_HIGH);\
-																						break;\
-																				}\
-																		}while(0)
+{\
+	switch((long)pxCurrentTCB->pxTaskTag)\
+	{\
+	case 1: 	/*** Load_1_Simulation Task ***/\
+		GPIO_write(PORT_0,PIN2,PIN_IS_HIGH);\
+		Task_Load_1_Simulation_StartPoint = T1TC;\
+		break;\
+	case 2:		/*** Load_2_Simulation Task ***/\
+		GPIO_write(PORT_0,PIN3,PIN_IS_HIGH);\
+		Task_Load_2_Simulation_StartPoint = T1TC;\
+		break;\
+	case 3:		/*** Button_1_Monitor Task ***/\
+		GPIO_write(PORT_0,PIN7,PIN_IS_HIGH);\
+		break;\
+	case 4:		/*** Button_2_Monitor Task ***/\
+		GPIO_write(PORT_0,PIN8,PIN_IS_HIGH);\
+		break;\
+	case 5:		/*** Periodic_Transimtter Task ***/\
+		GPIO_write(PORT_0,PIN6,PIN_IS_HIGH);\
+		break;\
+	case 6:		/*** Uart_Receiver Task ***/\
+		GPIO_write(PORT_0,PIN5,PIN_IS_HIGH);\
+		break;\
+	}\
+}while(0)
 																	
 
 #endif /* FREERTOS_CONFIG_H */
